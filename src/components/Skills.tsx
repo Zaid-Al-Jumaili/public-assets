@@ -1,113 +1,98 @@
 import React from 'react';
-import { Code, Cpu, Database, Wrench, Brain, Zap } from 'lucide-react';
+import { Code2, Cable, Brain, Hammer, Move3D, Radar } from 'lucide-react';
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      icon: Code,
-      title: "Programming & Software",
-      skills: ["Python", "C++", "Arduino", "MATLAB", "Simulink", "Verilog HDL", "Ladder Logic", "Linux"],
-      color: "blue"
-    },
-    {
-      icon: Brain,
-      title: "Robotics & Automation",
-      skills: ["ROS2", "KUKA KRL", "xArm6 SDK", "Unitree Go2 SDK", "Computer Vision", "AI-powered robotics"],
-      color: "purple"
-    },
-    {
-      icon: Cpu,
-      title: "Embedded Systems & IoT",
-      skills: ["Raspberry Pi", "ESP8266", "Controllino", "Arduino", "Real-time UDP/TCP", "PCB Design"],
-      color: "cyan"
-    },
-    {
-      icon: Database,
-      title: "Simulation & Analysis",
-      skills: ["PSpice", "LTspice", "MATLAB Simulations", "OpenCV", "Deep Learning Models"],
-      color: "green"
-    },
-    {
-      icon: Wrench,
-      title: "Event Technology",
-      skills: ["Kinetic Lighting (Madrix)", "VR Integration", "Motion Synchronization", "Interactive Systems"],
-      color: "orange"
-    },
-    {
-      icon: Zap,
-      title: "Hardware & Electronics",
-      skills: ["Circuit Troubleshooting", "Soldering", "Audio Processing", "Real-time Response Systems"],
-      color: "pink"
-    }
-  ];
+    const skillCategories = [
+        {
+            icon: Code2,
+            title: "Core Systems & Programming",
+            skills: ["Python", "C++", "MATLAB / Simulink", "Arduino", "Ladder Logic"],
+            color: "blue"
+        },
+        {
+            icon: Move3D,
+            title: "Robotics & Intelligent Control",
+            skills: ["KUKA KRL", "ROS2", "xArm6 SDK", "Unitree Go2 SDK", "Computer Vision", "Motion Synchronization"],
+            color: "purple"
+        },
+        {
+            icon: Cable,
+            title: "Embedded Systems & Connectivity",
+            skills: ["Raspberry Pi", "ESP8266", "Controllino", "Real-time UDP/TCP", "IoT Prototyping"],
+            color: "cyan"
+        },
+        {
+            icon: Brain,
+            title: "AI & Smart Systems",
+            skills: ["Deep Learning", "Real-time Decision Making", "OpenCV", "MATLAB Simulations"],
+            color: "green"
+        },
+        {
+            icon: Hammer,
+            title: "Hardware Engineering",
+            skills: ["Circuit Debugging", "Soldering", "Real-time Systems", "Audio Processing", "System Integration"],
+            color: "orange"
+        },
+        {
+            icon: Radar,
+            title: "Live Event & Interaction Tech",
+            skills: ["Kinetic Lighting (Madrix)", "VR Integration", "Interactive Installations", "Crowd-reactive Systems"],
+            color: "pink"
+        }
+    ];
 
-  const getColorClasses = (color: string) => {
-    const colors = {
-      blue: "from-blue-500/20 to-blue-600/20 text-blue-400 border-blue-400/30",
-      purple: "from-purple-500/20 to-purple-600/20 text-purple-400 border-purple-400/30",
-      cyan: "from-cyan-500/20 to-cyan-600/20 text-cyan-400 border-cyan-400/30",
-      green: "from-green-500/20 to-green-600/20 text-green-400 border-green-400/30",
-      orange: "from-orange-500/20 to-orange-600/20 text-orange-400 border-orange-400/30",
-      pink: "from-pink-500/20 to-pink-600/20 text-pink-400 border-pink-400/30"
+    const getColorClasses = (color: string) => {
+        const colors = {
+            blue: "from-blue-500/20 to-blue-600/20 text-blue-400 border-blue-400/30",
+            purple: "from-purple-500/20 to-purple-600/20 text-purple-400 border-purple-400/30",
+            cyan: "from-cyan-500/20 to-cyan-600/20 text-cyan-400 border-cyan-400/30",
+            green: "from-green-500/20 to-green-600/20 text-green-400 border-green-400/30",
+            orange: "from-orange-500/20 to-orange-600/20 text-orange-400 border-orange-400/30",
+            pink: "from-pink-500/20 to-pink-600/20 text-pink-400 border-pink-400/30"
+        };
+        return colors[color as keyof typeof colors] || colors.blue;
     };
-    return colors[color as keyof typeof colors] || colors.blue;
-  };
 
-  return (
-    <section id="skills" className="py-20 bg-black">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Technical <span className="text-blue-400">Skills</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A comprehensive toolkit spanning robotics, AI, and cutting-edge technologies
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillCategories.map((category, index) => (
-              <div key={index} className="bg-gray-900/50 rounded-xl p-6 hover:bg-gray-900/70 transition-all duration-300 transform hover:scale-105">
-                <div className="flex items-center mb-6">
-                  <div className={`p-3 bg-gradient-to-br ${getColorClasses(category.color)} rounded-full mr-4`}>
-                    <category.icon size={24} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className={`px-4 py-2 bg-gradient-to-r ${getColorClasses(category.color)} rounded-lg border backdrop-blur-sm`}>
-                      <span className="text-sm font-medium">{skill}</span>
+    return (
+        <section id="skills" className="min-h-screen flex items-center bg-black py-8 sm:py-12">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="max-w-7xl mx-auto">
+                    {/* Compact Section Header */}
+                    <div className="text-center mb-8 sm:mb-12">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4">
+                            Technical <span className="text-blue-400">Skills</span>
+                        </h2>
+                        <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto rounded-full mb-3 sm:mb-4"></div>
+                        <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                            Not just tools I have used, tools I have mastered to turn imagination into working machines.
+                        </p>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
 
-          <div className="mt-16 bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">Core Competencies</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">Advanced</div>
-                <div className="text-gray-300">Autonomous Systems</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">Expert</div>
-                <div className="text-gray-300">Machine Learning</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-cyan-400 mb-2">Proficient</div>
-                <div className="text-gray-300">Hardware Integration</div>
-              </div>
+                    {/* Ultra Compact Skills Grid */}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                        {skillCategories.map((category, index) => (
+                            <div key={index} className="bg-gray-900/50 rounded-xl p-4 sm:p-6 hover:bg-gray-900/70 transition-all duration-300 transform hover:scale-105 border border-gray-800/50 h-full flex flex-col">
+                                <div className="flex items-center mb-3 sm:mb-4">
+                                    <div className={`p-2 bg-gradient-to-br ${getColorClasses(category.color)} rounded-full mr-3`}>
+                                        <category.icon size={18} />
+                                    </div>
+                                    <h3 className="text-base sm:text-lg font-semibold text-white">{category.title}</h3>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-2 sm:gap-3 flex-1">
+                                    {category.skills.map((skill, skillIndex) => (
+                                        <div key={skillIndex} className={`px-3 py-2 bg-gradient-to-r ${getColorClasses(category.color)} rounded-lg border backdrop-blur-sm text-center`}>
+                                            <span className="text-xs sm:text-sm font-medium">{skill}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Skills;

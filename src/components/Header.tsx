@@ -23,69 +23,79 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-                }`}
+            className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
         >
-            <div className="container mx-auto px-6 py-4">
+            <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
                 <div className="flex items-center justify-between">
-                    {/* Left - Logo */}
-                    <div className="text-5xl text-white" style={{ fontFamily: 'Mrs Saint Delafield, cursive' }}>
+                    {/* Logo - Responsive sizing */}
+                    <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white" style={{ fontFamily: 'Mrs Saint Delafield, cursive' }}>
                         <span className="text-blue-400">Z</span>aid Al-Jumaili
                     </div>
 
-
-
-                    {/* Center - Navigation */}
-                    <nav className="hidden md:flex space-x-8 mx-auto">
-                        <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors">
+                    {/* Desktop Navigation */}
+                    <nav className="hidden lg:flex space-x-6 xl:space-x-8 mx-auto">
+                        <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors text-sm xl:text-base">
                             About
                         </button>
-                        <button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors">
+                        <button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors text-sm xl:text-base">
                             Skills
                         </button>
-                        <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors">
+                        <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors text-sm xl:text-base">
                             Projects
                         </button>
-                        <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors">
+                        <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors text-sm xl:text-base">
                             Contact
                         </button>
                     </nav>
 
-                    {/* Right - Icons */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <a href="https://www.linkedin.com/in/zaidaljumaili" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
-                            <Linkedin size={20} />
+                    {/* Desktop Social Icons */}
+                    <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+                        <a href="https://www.linkedin.com/in/zaidaljumaili" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                            <Linkedin size={18} className="xl:w-5 xl:h-5" />
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
-                            <Github size={20} />
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                            <Github size={18} className="xl:w-5 xl:h-5" />
                         </a>
-                        <a href="mailto:aljumailizaid@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                            <Mail size={20} />
+                        <a href="mailto:aljumailizaid@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                            <Mail size={18} className="xl:w-5 xl:h-5" />
                         </a>
                     </div>
 
                     {/* Mobile menu toggle */}
-                    <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    <button className="lg:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
 
                 {/* Mobile menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden mt-4 py-4 bg-gray-800 rounded-lg">
+                    <div className="lg:hidden mt-4 py-4 bg-gray-800/95 backdrop-blur-md rounded-lg border border-gray-700/50">
                         <nav className="flex flex-col space-y-4 px-4">
-                            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors text-left">
+                            <button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors text-left py-2 text-lg">
                                 About
                             </button>
-                            <button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors text-left">
+                            <button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors text-left py-2 text-lg">
                                 Skills
                             </button>
-                            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors text-left">
+                            <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors text-left py-2 text-lg">
                                 Projects
                             </button>
-                            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors text-left">
+                            <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors text-left py-2 text-lg">
                                 Contact
                             </button>
+
+                            {/* Mobile Social Icons */}
+                            <div className="flex items-center space-x-4 pt-4 border-t border-gray-700">
+                                <a href="https://www.linkedin.com/in/zaidaljumaili" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                                    <Linkedin size={20} />
+                                </a>
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                                    <Github size={20} />
+                                </a>
+                                <a href="mailto:aljumailizaid@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors p-2">
+                                    <Mail size={20} />
+                                </a>
+                            </div>
                         </nav>
                     </div>
                 )}
